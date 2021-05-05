@@ -10,6 +10,9 @@ public class SheepSpawner : MonoBehaviour
     public List<Transform> sheepSpawnPositions = new List<Transform>(); // 3
     public float timeBetweenSpawns; // 4
 
+    public float friendlyPercentage;
+    public float angryPercentage;
+
     private List<GameObject> sheepList = new List<GameObject>(); // 5
 
     private void SpawnSheep()
@@ -17,6 +20,13 @@ public class SheepSpawner : MonoBehaviour
         Vector3 randomPosition = sheepSpawnPositions[Random.Range(0, sheepSpawnPositions.Count)].position; // 1
         GameObject sheep = Instantiate(sheepPrefab, randomPosition, sheepPrefab.transform.rotation); // 2
         sheepList.Add(sheep); // 3
+        float randomMode = Random.Range(0f, 1f);
+        Debug.Log(randomMode);
+        if (friendlyPercentage > randomMode)
+            sheep.GetComponent<Sheep>().sheepMode = SheepMode.Friendly;
+        else if (angryPercentage + friendlyPercentage > randomMode)
+            sheep.GetComponent<Sheep>().sheepMode = SheepMode.Angry;
+
         sheep.GetComponent<Sheep>().SetSpawner(this); // 4
     }
     private IEnumerator SpawnRoutine() // 1

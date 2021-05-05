@@ -501,6 +501,8 @@ MonoBehaviour:
   - {fileID: 1794623464}
   - {fileID: 2017311631}
   timeBetweenSpawns: 2
+  friendlyPercentage: 0.2
+  angryPercentage: 0.1
 --- !u!4 &757802612
 Transform:
   m_ObjectHideFlags: 0

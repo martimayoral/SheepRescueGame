@@ -75,7 +75,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17aa2edf81e005146a48d89b6b1c627c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 10
+  sheepMode: 2
+  normalRunSpeed: 10
+  angryRunSpeed: 15
+  friendlyRunSpeed: 7
+  model: {fileID: 6864450992109467287}
+  angryColor: {r: 1, g: 0, b: 0, a: 0.39215687}
+  friendlyColor: {r: 1, g: 0.80093634, b: 0, a: 0.39215687}
   gotHayDestroyDelay: 1
   dropDestroyDelay: 4
   heartOffset: 4
@@ -141,6 +147,12 @@ PrefabInstance:
 --- !u!4 &6864450992111760503 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: fee0f50f91e9d7d4a84a85232e663d4a,
+    type: 3}
+  m_PrefabInstance: {fileID: 6864450992111365879}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &6864450992109467287 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2300000, guid: fee0f50f91e9d7d4a84a85232e663d4a,
     type: 3}
   m_PrefabInstance: {fileID: 6864450992111365879}
   m_PrefabAsset: {fileID: 0}
