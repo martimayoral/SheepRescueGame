@@ -28,16 +28,22 @@ public class Sheep : MonoBehaviour
             Destroy(other.gameObject); // 3
             HitByHay(); // 4
         }
-        else if (other.CompareTag("DropSheep"))
+        else if (other.CompareTag("DropSheep") && myCollider.isTrigger)
         {
             Drop();
         }
     }
     private void Drop()
     {
+
+        GameStateManager.Instance.DroppedSheep();
         sheepSpawner.RemoveSheepFromList(gameObject);
         myRigidbody.isKinematic = false; // 1
         myCollider.isTrigger = false; // 2
+
+
+        SoundManager.Instance.PlaySheepDroppedClip();
+
         Destroy(gameObject, dropDestroyDelay); // 3
     }
 
@@ -64,6 +70,10 @@ public class Sheep : MonoBehaviour
         TweenScale tweenScale = gameObject.AddComponent<TweenScale>(); ; // 1
         tweenScale.targetScale = 0; // 2
         tweenScale.timeToReachTarget = gotHayDestroyDelay; // 3
+
+        GameStateManager.Instance.SavedSheep();
+
+        SoundManager.Instance.PlaySheepHitClip();
 
         Destroy(gameObject, gotHayDestroyDelay); // 3
     }
