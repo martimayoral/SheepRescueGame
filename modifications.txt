@@ -1,0 +1,3 @@
+I've added different kind of sheeps, ones that are friendly that go slower and others that are angry and go faster.
+In order to do so i had to create a new script with an enum of the sheep modes, and modify the sheep script to change speed and also color.
+We can modify the color of the sheep from the inspector in a correct way.
